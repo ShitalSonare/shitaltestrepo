@@ -1,0 +1,15 @@
+version: '2'
+ 
+services:
+    contentservice:
+        image: registry.extern.lhindts.de/lhind_docsurf_distribution_services/content-service:latest
+        container_name: contentservice
+        ports:
+            - 8444:8444
+        volumes:
+            - ./data:/usr/local/tomcat/data
+            - ./conf/server.xml:/usr/local/tomcat/conf/server.xml
+            - ./conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+            - ./conf/content-server.properties:/usr/local/tomcat/conf/content-server.properties
+            - ./conf/content-server.jks:/usr/local/tomcat/conf/content-server.jks
+            - ./contentserver/conf/logging.properties:/usr/local/tomcat/conf/logging.properties
